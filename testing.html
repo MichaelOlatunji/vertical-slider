@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Full Page App</title>
+        <style>
+            html, body {
+                height:100%;
+                overflow-y: auto;
+                padding: 0;
+                margin: 0;
+            }
+            .full {
+                display: flex;
+                height: 100vh;
+                /* position: absolute; */
+                /* top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0; */
+                overflow-y: auto;
+
+            }
+            .bg-green{
+                background-color: green;
+            }
+            .bg-red{
+                background-color: red;
+            }
+            .bg-blue{
+                background-color: blue;
+            }
+            .toggle-content {
+                display: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 350ms ease-in-out;
+            }
+
+            .toggle-content.is-visible {
+                display: block;
+                max-height: 999em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="myDiv" class="full div1 bg-green">
+
+        </div>
+        <div id="myDiv" class="full div2 bg-red">
+
+        </div>
+        <div id="myDiv" class="full div3 bg-blue">
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script>
+            // $(function() {
+            //     function abso() {
+            //         $('.full').css({
+            //             position: 'absolute',
+            //             width: $(window).width(),
+            //             height: $(window).height()
+            //         });
+            //     }
+
+            //     $(window).resize(function() {
+            //         abso();         
+            //     });
+
+            //     abso();
+            // });
+
+            (function (){
+                const getFullWidthAndHeight = () => {
+                    document.querySelector('#myDiv').style.cssText = `width: ${window.innerWidth}; height: ${window.innerHeight}`
+                }
+                window.addEventListener('resize', () => {
+                    getFullWidthAndHeight()
+                })
+                window.addEventListener('mousewheel', event => {
+                    if (event.deltaY < 0) {
+                        console.log("scrolling up!")
+                    }
+                    else if (event.deltaY > 0){
+                        console.log("scrolling down!")
+                        document.querySelector('.div1').style.display = "none"
+                        window.scroll(0,0)
+                    }
+                });
+                window.addEventListener('keydown', event => {
+                    console.log(event.keyCode);
+                    if(event.keyCode == 38) console.log("Arrow Up");
+                    else if(event.keyCode == 40) console.log("Arrow Down")
+
+                })
+
+                // function listenToEvents(element, events, callback){
+                //     events.split(' ').forEach(e => element.addEventListener(e, callback))
+                // }
+                // listenToEvents(window, 'mousewheel keydown', () => {
+                //     document.querySelector('.div1').style.display = "none"
+                // });
+
+                getFullWidthAndHeight()
+            })()
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page-slider-js</title>
+    <script src="slider.js"></script>
+    <link rel="stylesheet" href="slider.css">
+
+    <style>
+      #norwegian {
+        background: linear-gradient(225deg, #ffc27d, #ff8e93);
+      }
+      #french {
+        background: linear-gradient(#f3defc, #63a3e6);
+      }
+      #spanish {
+        background: linear-gradient(#d2fcad, #22eaeb);
+      }
+      #hindi{
+        background: linear-gradient(#f0bed4, #a163f5);
+      }
+      #mandarin {
+        background: linear-gradient(#65cce1, #6365ec);
+      }
+
+      section > div > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 7vw;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        color: #fff;
+      }
+      #prev{
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+      }
+      #next{
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+      }
+      button{
+        width: 100px;
+        height: 40px;
+        border: 0;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slides">
+      <section id="norwegian">
+        <div><span>Action 1</span> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="french">
+        <div><span>Action 2</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="spanish">
+        <div><span>Action 3</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="hindi">
+        <div><span>Action 4</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="mandarin">
+        <div><span>Action 5</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="mandarin">
+        <div><span>Action 6</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="mandarin">
+        <div><span>Action 7</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="mandarin">
+        <div><span>Action 8</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="mandarin">
+        <div><span>Action 9</span><button id="prev" onclick="goPrev()">prev</button> <button id="next" onclick="goNext()">next</button></div>
+      </section>
+      <section id="mandarin">
+        <div><span>Action 10</span><button id="prev" onclick="goPrev()">prev</button></div>
+      </section>
+    </div>
+
+    <script>
+      const mySlider = slider('.slides');
+      const goPrev = mySlider.goPrev
+      const goNext = mySlider.goNext
+    </script>
+  </body>
+</html>
